@@ -1,0 +1,8 @@
+1) Creer une appli qui permet de determiner la liste des universites du pays selectionne par l'user
+
+2) Genderize... L'user entre son nom et on affiche la probalite du genre de son nom... On doit ameliorer l'ui et l'ux
+
+2) BMI calculator:
+widget : slider, onlongpress
+
+4) Installer l'extension bloc
