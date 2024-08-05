@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_third/counter/business_logic/blocs/counter_bloc/counter_bloc.dart';
-import 'package:flutter_third/counter/business_logic/blocs/foot_bloc/foot_bloc.dart';
+import 'package:flutter_third/counter/business_logic/blocs/counter_bloc/foot_bloc.dart';
 
 class CounterScreen extends StatelessWidget {
   CounterScreen({super.key});
@@ -54,6 +54,7 @@ class CounterScreen extends StatelessWidget {
                             footBloc1.add(OneFoot());
                           },
                           child: BlocBuilder<FootBloc, FootState>(
+                            bloc: footBloc1,
                             builder: (context, state) {
                               return Container(
                                 alignment: Alignment.center,
@@ -83,6 +84,7 @@ class CounterScreen extends StatelessWidget {
                             footBloc1.add(TwoFoot());
                           },
                           child: BlocBuilder<FootBloc, FootState>(
+                            bloc: footBloc1,
                             builder: (context, state) {
                               return Container(
                                 alignment: Alignment.center,
@@ -108,6 +110,7 @@ class CounterScreen extends StatelessWidget {
                         const Gap(15),
                         Center(
                           child: BlocBuilder<FootBloc, FootState>(
+                            bloc: footBloc1,
                             builder: (context, state) {
                               return Text(
                                 "${footBloc1.state.foot}",
@@ -148,12 +151,12 @@ class CounterScreen extends StatelessWidget {
                         FloatingActionButton(
                           heroTag: "decrement1",
                           onPressed: () {
-                            // for (var i = 0; i < footBloc1.state.foot; i++) {
-                            // context
-                            //     .read<CounterBloc>()
-                            //     .add(DecrementCounterEvent());
-                            counterBloc1.add(DecrementCounterEvent());
-                            // }
+                            for (var i = 0; i < footBloc1.state.foot; i++) {
+                              // context
+                              //     .read<CounterBloc>()
+                              //     .add(DecrementCounterEvent());
+                              counterBloc1.add(DecrementCounterEvent());
+                            }
                           },
                           backgroundColor: Colors.blue,
                           child: const Icon(
@@ -166,12 +169,12 @@ class CounterScreen extends StatelessWidget {
                         FloatingActionButton(
                           heroTag: "increment1",
                           onPressed: () {
-                            // for (var i = 0; i < footBloc1.state.foot; i++) {
-                            // context
-                            //     .read<CounterBloc>()
-                            //     .add(IncrementCounterEvent());
-                            counterBloc1.add(IncrementCounterEvent());
-                            // }
+                            for (var i = 0; i < footBloc1.state.foot; i++) {
+                              // context
+                              //     .read<CounterBloc>()
+                              //     .add(IncrementCounterEvent());
+                              counterBloc1.add(IncrementCounterEvent());
+                            }
                           },
                           backgroundColor: Colors.blue,
                           child: const Icon(
@@ -191,93 +194,96 @@ class CounterScreen extends StatelessWidget {
             child: Container(
               child: Column(
                 children: [
-                  // Padding(
-                  //   padding: const EdgeInsets.symmetric(
-                  //     horizontal: 15,
-                  //   ),
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.center,
-                  //     children: [
-                  //       const Text(
-                  //         "Choose the step",
-                  //         style: TextStyle(
-                  //           fontSize: 20,
-                  //         ),
-                  //       ),
-                  //       const Gap(15),
-                  //       InkWell(
-                  //         onTap: () {
-                  //           // context.read<FootBloc>().add(OneFoot());
-                  //           footBloc2.add(OneFoot());
-                  //         },
-                  //         child: BlocBuilder<FootBloc, FootState>(
-                  //           builder: (context, state) {
-                  //             return Container(
-                  //               alignment: Alignment.center,
-                  //               width: 60,
-                  //               height: 60,
-                  //               decoration: BoxDecoration(
-                  //                 color: footBloc2.state.foot == 1
-                  //                     ? Colors.deepPurple.withOpacity(0.5)
-                  //                     : Colors.grey.withOpacity(0.7),
-                  //                 borderRadius: BorderRadius.circular(30),
-                  //               ),
-                  //               child: const Text(
-                  //                 "+/- 1",
-                  //                 style: TextStyle(
-                  //                   fontSize: 20,
-                  //                   fontWeight: FontWeight.w600,
-                  //                 ),
-                  //               ),
-                  //             );
-                  //           },
-                  //         ),
-                  //       ),
-                  //       const Gap(15),
-                  //       InkWell(
-                  //         onTap: () {
-                  //           // context.read<FootBloc>().add(TwoFoot());
-                  //           footBloc2.add(TwoFoot());
-                  //         },
-                  //         child: BlocBuilder<FootBloc, FootState>(
-                  //           builder: (context, state) {
-                  //             return Container(
-                  //               alignment: Alignment.center,
-                  //               width: 60,
-                  //               height: 60,
-                  //               decoration: BoxDecoration(
-                  //                 color: footBloc2.state.foot == 2
-                  //                     ? Colors.deepPurple.withOpacity(0.5)
-                  //                     : Colors.grey.withOpacity(0.7),
-                  //                 borderRadius: BorderRadius.circular(30),
-                  //               ),
-                  //               child: const Text(
-                  //                 "+/- 2",
-                  //                 style: TextStyle(
-                  //                   fontSize: 20,
-                  //                   fontWeight: FontWeight.w600,
-                  //                 ),
-                  //               ),
-                  //             );
-                  //           },
-                  //         ),
-                  //       ),
-                  //       const Gap(15),
-                  //       Center(
-                  //         child: BlocBuilder<FootBloc, FootState>(
-                  //           builder: (context, state) {
-                  //             return Text(
-                  //               "${footBloc2.state.foot}",
-                  //               style: const TextStyle(
-                  //                 fontSize: 50,
-                  //               ),
-                  //             );
-                  //           },
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 15,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Choose the step",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        const Gap(15),
+                        InkWell(
+                          onTap: () {
+                            // context.read<FootBloc>().add(OneFoot());
+                            footBloc2.add(OneFoot());
+                          },
+                          child: BlocBuilder<FootBloc, FootState>(
+                            bloc: footBloc2,
+                            builder: (context, state) {
+                              return Container(
+                                alignment: Alignment.center,
+                                width: 60,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  color: footBloc2.state.foot == 1
+                                      ? Colors.deepPurple.withOpacity(0.5)
+                                      : Colors.grey.withOpacity(0.7),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: const Text(
+                                  "+/- 1",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        const Gap(15),
+                        InkWell(
+                          onTap: () {
+                            // context.read<FootBloc>().add(TwoFoot());
+                            footBloc2.add(TwoFoot());
+                          },
+                          child: BlocBuilder<FootBloc, FootState>(
+                            bloc: footBloc2,
+                            builder: (context, state) {
+                              return Container(
+                                alignment: Alignment.center,
+                                width: 60,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  color: footBloc2.state.foot == 2
+                                      ? Colors.deepPurple.withOpacity(0.5)
+                                      : Colors.grey.withOpacity(0.7),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: const Text(
+                                  "+/- 2",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        const Gap(15),
+                        Center(
+                          child: BlocBuilder<FootBloc, FootState>(
+                            bloc: footBloc2,
+                            builder: (context, state) {
+                              return Text(
+                                "${footBloc2.state.foot}",
+                                style: const TextStyle(
+                                  fontSize: 50,
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   const Spacer(),
                   Center(
                     child: BlocBuilder<CounterBloc, CounterState>(
@@ -305,12 +311,12 @@ class CounterScreen extends StatelessWidget {
                         FloatingActionButton(
                           heroTag: "decrement2",
                           onPressed: () {
-                            // for (var i = 0; i < footBloc2.state.foot; i++) {
-                            // context
-                            //     .read<CounterBloc>()
-                            //     .add(DecrementCounterEvent());
-                            counterBloc2.add(DecrementCounterEvent());
-                            // }
+                            for (var i = 0; i < footBloc2.state.foot; i++) {
+                              // context
+                              //     .read<CounterBloc>()
+                              //     .add(DecrementCounterEvent());
+                              counterBloc2.add(DecrementCounterEvent());
+                            }
                           },
                           backgroundColor: Colors.red,
                           child: const Icon(
@@ -323,12 +329,12 @@ class CounterScreen extends StatelessWidget {
                         FloatingActionButton(
                           heroTag: "increment2",
                           onPressed: () {
-                            // for (var i = 0; i < footBloc2.state.foot; i++) {
-                            // context
-                            //     .read<CounterBloc>()
-                            //     .add(IncrementCounterEvent());
-                            counterBloc2.add(IncrementCounterEvent());
-                            // }
+                            for (var i = 0; i < footBloc2.state.foot; i++) {
+                              // context
+                              //     .read<CounterBloc>()
+                              //     .add(IncrementCounterEvent());
+                              counterBloc2.add(IncrementCounterEvent());
+                            }
                           },
                           backgroundColor: Colors.red,
                           child: const Icon(

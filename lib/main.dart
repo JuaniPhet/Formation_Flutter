@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_third/counter/business_logic/blocs/counter_bloc/counter_bloc.dart';
-import 'package:flutter_third/counter/business_logic/blocs/foot_bloc/foot_bloc.dart';
+import 'package:flutter_third/counter/business_logic/blocs/counter_bloc/foot_bloc.dart';
 import 'application_screen.dart';
 
 void main() {
